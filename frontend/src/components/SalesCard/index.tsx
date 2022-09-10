@@ -7,6 +7,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/request';
 import { Sale } from '../../models/sale';
 
+
 function SalesCard() {
 
 
@@ -75,7 +76,7 @@ function SalesCard() {
                   <td>R$ {sale.amount.toFixed(2)}</td>
                   <td>
                     <div className="dsmeta-red-btn-container">
-                      <NotificationButton saleId={sale.id}/>
+                      <NotificationButton saleId={sale.id} sallerName={sale.sellerName}/>
                     </div>
                   </td>
                 </tr>
