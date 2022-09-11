@@ -2,7 +2,7 @@
 
 # Bem Vindo ao Repositorio Srping-Boot Reactjs
 
-Treinamento Java Typescripit
+Treinamento Oferecido por DvSuperior
 
 ## Contexto
 
