@@ -49,7 +49,7 @@ Copie o ssh do projeto `git@github.com:Paulynho-lima/Spring-React.git`
 A API consta com 1 rotas:
 
 - `/sales`:
-  - `/` [`GET`] Lista todas as tarefas cadastradas
+  - `/` [`GET`] Lista todas as vendas cadastradas
   - `/id/notification` [`GET`] Envia uma notificação sms
   
 ---
