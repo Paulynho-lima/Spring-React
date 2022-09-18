@@ -15,7 +15,7 @@ import com.devsuperior.dsmeta.repositories.SaleRepository;
 @Service
 public class SaleService {
 	
-	@Autowired
+	@Autowired /* Esse marcação é o IC/Cd ou CDI Injeção*/
 	private SaleRepository repository; 
 	
 	public Page<Sale> findSales(String minDate, String maxDate, Pageable pageable) {
