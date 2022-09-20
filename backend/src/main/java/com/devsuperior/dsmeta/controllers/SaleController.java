@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,6 +59,22 @@ public class SaleController {
 		Sale sales = repository.save(sale);
 		
 		return new ResponseEntity<Sale>(sales, HttpStatus.CREATED);
+		
+	}
+	
+	@DeleteMapping("/{id}/delete")
+	/*@ResponseBody  descrição da resposta e requisita o id pelo Multipart Form*/
+	public ResponseEntity<String > delete(@PathVariable Long id) {
+		
+		repository.deleteById(id);
+		try {
+			return new ResponseEntity<String>("Sale deletado com sucesso", HttpStatus.OK);
+		}catch(Exception e) {
+	
+			return  new ResponseEntity<String>("Ops deu erro Interno favor verificar sua API" , HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		
 		
 	}
 }
