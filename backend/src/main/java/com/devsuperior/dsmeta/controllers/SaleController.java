@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,13 +69,27 @@ public class SaleController {
 		
 		repository.deleteById(id);
 		try {
-			return new ResponseEntity<String>("Sale deletado com sucesso", HttpStatus.OK);
+			return new ResponseEntity<String>("Sale com Id " + id +" deletado com sucesso", HttpStatus.OK);
 		}catch(Exception e) {
 	
 			return  new ResponseEntity<String>("Ops deu erro Interno favor verificar sua API" , HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
+		
+	}
+	
+	@PutMapping("/update")
+	@ResponseBody
+	public ResponseEntity<?> update (@RequestBody Sale sale) {
+		
+		if(sale.getId() == null ||  sale.getId() == ' '){
+			return new ResponseEntity<String>("Informe um ID valido para atualização!", HttpStatus.NOT_FOUND);
+		}
+		
+		Sale sales = repository.save(sale);
+		
+		return new ResponseEntity<Sale>(sales, HttpStatus.CREATED);
 		
 	}
 }
