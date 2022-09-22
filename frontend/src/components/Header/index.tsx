@@ -1,4 +1,5 @@
 import logo from "../../assets/img/logo.svg";
+
 import "./styles.css";
 
 function Header() {
@@ -7,6 +8,8 @@ function Header() {
         <div className="dsmeta-logo-container">
             <img src={logo} alt="DSMeta" />
             <h1>DSMeta</h1>
+           
+          
             <p>
               Desenvolvido por
               <a href="https://www.linkedin.com/in/paulo-lima/">linkedin.com/paulynho-lima</a>

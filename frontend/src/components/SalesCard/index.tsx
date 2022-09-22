@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/request';
 import { Sale } from '../../models/sale';
+import RegisterModalSale from '../modalCadas';
 
 
 function SalesCard() {
@@ -33,6 +34,7 @@ function SalesCard() {
       <div className="dsmeta-card">
       <h2 className="dsmeta-sales-title">Vendas</h2>
       <div>
+        <RegisterModalSale/>
         <div className="dsmeta-form-control-container">
           <DatePicker
             selected={minDate}

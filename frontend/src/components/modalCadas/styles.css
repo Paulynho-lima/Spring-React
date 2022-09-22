@@ -1,0 +1,44 @@
+.amountSale {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.buttonRegister{
+    display: flex;
+    margin-left: 70%;
+
+}
+
+.dateSale {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.header {
+    color: black;
+}
+
+.modalbody {
+    color: black;
+}
+
+.nameSale {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.visitSale {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+}
+
+.dealsSale {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
