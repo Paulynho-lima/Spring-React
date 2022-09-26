@@ -56,7 +56,7 @@ function EditModalSale({
       .put(`${BASE_URL}/sales/update`, data)
       .then((response) => {
         toast.info(
-          `Vendedor/a ${response.data.sellerName} Editado com sucesso!`
+          `Vendedor/a ${response.data.sellerName} Editado com Sucesso Atualize a Pagina!`
         );
       })
       .catch((err) => console.log(err.message));
@@ -188,6 +188,14 @@ function EditModalSale({
             size="lg"
           >
             Editar
+          </Button>
+          <Button
+            onClick={() => hamdleCloseModel()}
+            outline
+            color="info"
+            size="lg"
+          >
+            Fechar
           </Button>
         </ModalFooter>
       </Modal>

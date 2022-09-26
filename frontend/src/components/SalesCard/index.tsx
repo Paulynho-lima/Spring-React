@@ -8,6 +8,7 @@ import { BASE_URL } from '../../utils/request';
 import { Sale } from '../../models/sale';
 import RegisterModalSale from '../modalCadas';
 import EditModalSale from '../modalEdit';
+import DeleteButton from '../deleteButton';
 
 function SalesCard() {
   const dateMin = new Date(new Date().setDate(new Date().getDate() - 365));
@@ -61,6 +62,7 @@ function SalesCard() {
               <th>Total</th>
               <th>Notificar</th>
               <th>Editar</th>
+              <th>Deletar</th>
             </tr>
           </thead>
           <tbody>
@@ -94,6 +96,14 @@ function SalesCard() {
                         visited={sale.visited}
                         deals={sale.visited}
                         amount={sale.amount}
+                      />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="dsmeta-red-btn-container">
+                      <DeleteButton
+                        saleId={sale.id}
+                        sallerName={sale.sellerName}
                       />
                     </div>
                   </td>

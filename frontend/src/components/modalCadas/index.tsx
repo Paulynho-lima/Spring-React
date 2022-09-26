@@ -42,7 +42,7 @@ function RegisterModalSale() {
       .post(`${BASE_URL}/sales/saleSave`, data)
       .then((response) => {
         toast.info(
-          `Vendedor/a ${response.data.sellerName} cadastrado com sucesso!`
+          `Vendedor/a ${response.data.sellerName} Cadastrado com Sucesso Atualize a Pagina!`
         );
       })
       .catch((err) => console.log(err.message));

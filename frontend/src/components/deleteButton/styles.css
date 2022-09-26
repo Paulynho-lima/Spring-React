@@ -1,15 +1,14 @@
-.dsmeta-red-btn {
+.buttonDelete {
   height: 35px;
   width: 35px;
-  background: rgba(255, 107, 114, 0.1);
-  border: 1px solid #ff6b72;
+  background: hwb(1 2% 16% / 0.539);
+  border: 1px solid hwb(0 3% 4%);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
-
-.dsmeta-red-btn img {
+.buttonDelete img {
   width: 19px;
 }
