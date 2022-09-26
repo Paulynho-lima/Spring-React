@@ -7,6 +7,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/request';
 import { Sale } from '../../models/sale';
 import RegisterModalSale from '../modalCadas';
+import EditModalSale from '../modalEdit';
 
 function SalesCard() {
   const dateMin = new Date(new Date().setDate(new Date().getDate() - 365));
@@ -51,7 +52,7 @@ function SalesCard() {
       <div>
         <table className="dsmeta-sales-table">
           <thead>
-            <tr>
+            <tr className="trtable">
               <th className="show992">ID</th>
               <th className="show576">Data</th>
               <th>Vendedor</th>
@@ -59,6 +60,7 @@ function SalesCard() {
               <th className="show992">Vendas</th>
               <th>Total</th>
               <th>Notificar</th>
+              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -80,6 +82,18 @@ function SalesCard() {
                       <NotificationButton
                         saleId={sale.id}
                         sallerName={sale.sellerName}
+                      />
+                    </div>
+                  </td>
+                  <td>
+                    <div className="dsmeta-red-btn-container">
+                      <EditModalSale
+                        id={sale.id}
+                        sallerName={sale.sellerName}
+                        date={sale.date}
+                        visited={sale.visited}
+                        deals={sale.visited}
+                        amount={sale.amount}
                       />
                     </div>
                   </td>

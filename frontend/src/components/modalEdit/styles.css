@@ -1,0 +1,64 @@
+.amountSale {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.buttonRegiste {
+  height: 45px;
+  width: 45px;
+  background: rgba(165, 201, 224, 0.1);
+  border: 1px solid #3aafe5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.buttonRegiste img {
+  width: 19px;
+}
+
+.butonshow {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.dateSale {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.header {
+  color: black;
+}
+
+.modalbody {
+  color: black;
+}
+
+.idSale {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.nameSale {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.visitSale {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.dealsSale {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}

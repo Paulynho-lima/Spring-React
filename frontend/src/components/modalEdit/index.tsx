@@ -13,21 +13,35 @@ import {
   ModalFooter,
 } from 'reactstrap';
 import { BASE_URL } from '../../utils/request';
+import icone from '../../assets/img/editar-informacao.png';
 import './styles.css';
 
-function RegisterModalSale() {
+type Props = {
+  id: number;
+  sallerName: string;
+  date: string;
+  visited: string;
+  deals: string;
+  amount: string;
+};
+
+function EditModalSale({
+  id,
+  sallerName,
+  date,
+  visited,
+  deals,
+  amount,
+}: Props) {
   const [show, setShow] = useState(false);
   const [reset, setReset] = useState({
-    sellerName: '',
-    date: '',
-    visited: '',
-    deals: '',
-    amount: '',
+    id: id,
+    sellerName: sallerName,
+    date: date,
+    visited: visited,
+    deals: deals,
+    amount: amount,
   });
-
-  const resetForm = () => {
-    setReset({ sellerName: '', date: '', visited: '', deals: '', amount: '' });
-  };
 
   const hamdleModel = () => {
     setShow(true);
@@ -37,43 +51,57 @@ function RegisterModalSale() {
     setShow(false);
   };
 
-  const createSale = async (data: object) => {
+  const upDateSale = async (data: object) => {
     await axios
-      .post(`${BASE_URL}/sales/saleSave`, data)
+      .put(`${BASE_URL}/sales/update`, data)
       .then((response) => {
         toast.info(
-          `Vendedor/a ${response.data.sellerName} cadastrado com sucesso!`
+          `Vendedor/a ${response.data.sellerName} Editado com sucesso!`
         );
       })
       .catch((err) => console.log(err.message));
   };
   const onSubmitSales = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    await createSale({
+    await upDateSale({
+      id: reset.id,
       sellerName: reset.sellerName,
       date: reset.date,
       visited: reset.visited,
       deals: reset.deals,
       amount: reset.amount,
     });
+    hamdleCloseModel();
   };
 
   return (
     <>
-      <div className="buttonRegister">
-        <Button size="lg" outline color="info" onClick={() => hamdleModel()}>
-          Cadastar Nova Venda
-        </Button>
+      <div className="butonshow">
+        <button className="buttonRegiste" onClick={() => hamdleModel()}>
+          <img src={icone} alt=" Editar " />
+        </button>
       </div>
 
       <Modal isOpen={show} onRequestClose={hamdleCloseModel}>
         <ModalHeader className="header" closeButton>
-          <h2>Cadastrar uma nova venda</h2>
+          <h2>Editar Venda</h2>
         </ModalHeader>
 
         <ModalBody className="modalbody">
           <Form id="modalForm">
             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+              <div className="idSale">
+                <Label form="idSale" className="idLabel">
+                  ID da Venda
+                </Label>
+                <Input
+                  value={id}
+                  type={'text'}
+                  className="inputName"
+                  id="idSale"
+                  readOnly
+                />
+              </div>
               <div className="nameSale">
                 <Label form="name" className="nameLabel">
                   Nome do Vendedor
@@ -159,20 +187,7 @@ function RegisterModalSale() {
             color="success"
             size="lg"
           >
-            Cadastrar
-          </Button>
-
-          <Button onClick={() => resetForm()} outline color="primary" size="lg">
-            Novo Cadastro
-          </Button>
-
-          <Button
-            onClick={() => hamdleCloseModel()}
-            outline
-            color="info"
-            size="lg"
-          >
-            Fechar
+            Editar
           </Button>
         </ModalFooter>
       </Modal>
@@ -180,4 +195,4 @@ function RegisterModalSale() {
   );
 }
 
-export default RegisterModalSale;
+export default EditModalSale;
