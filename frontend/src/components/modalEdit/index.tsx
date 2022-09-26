@@ -20,9 +20,9 @@ type Props = {
   id: number;
   sallerName: string;
   date: string;
-  visited: string;
-  deals: string;
-  amount: string;
+  visited?: number | string;
+  deals?: number | string;
+  amount?: number | string;
 };
 
 function EditModalSale({
